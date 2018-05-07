@@ -5,6 +5,7 @@ import Router from 'vue-router'
 import store from './store'
 Vue.use(Router)
 import routes from './router'
+import 'assets/less/index.less'
 const router = new Router({
   mode: 'history',
   routes

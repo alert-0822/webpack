@@ -34,10 +34,14 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      {{#if_eq build "standalone"}}
       'vue$': 'vue/dist/vue.esm.js',
-      {{/if_eq}}
-      '@': resolve('src'),
+      'src': resolve('src'),
+      '@': resolve('src/components'),
+      'api': resolve('src/api'),
+      'assets': resolve('src/assets'),
+      'common': resolve('src/common'),
+      'base': resolve('src/base'),
+      'tool': resolve('src/tool')
     }
   },
   module: {
