@@ -1,4 +1,4 @@
-import api from 'api/api.js'
+import api from 'api/index.js'
 // import S from 'storejs'
 const state = {
 	token: null
@@ -12,15 +12,15 @@ const actions = {
 		commit,
 		state
 	}, cb) {
-		api._getToken().then((data) => {
-			setTimeout(() => {
-				// S.set('token', data.token)
-				commit('updateToken', data.token)
-				cb.success()
-			}, 2000)
-		}).catch((error) => {
-			cb.error()
-		})
+		// api._getToken().then((data) => {
+		// 	setTimeout(() => {
+		// 		// S.set('token', data.token)
+		// 		commit('updateToken', data.token)
+		// 		cb.success()
+		// 	}, 2000)
+		// }).catch((error) => {
+		// 	cb.error()
+		// })
 	},
 	delToken({ // 登出
 		commit,

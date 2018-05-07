@@ -1,8 +1,8 @@
-import HelloWorld from '@/components/HelloWorld'
+import HelloWorld from '@/HelloWorld'
 
 const routes = [{
   path: '/',
-  redirect: '/index'
+  redirect: '/hello'
 },
 {
   path: '/hello',
