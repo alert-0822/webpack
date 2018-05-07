@@ -1,26 +1,40 @@
-{{#if_eq build "standalone"}}
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-{{/if_eq}}
 import Vue from 'vue'
 import App from './App'
-{{#router}}
-import router from './router'
-{{/router}}
+import Router from 'vue-router'
+// import S from 'storejs'
+import store from './store'
+Vue.use(Router)
+import routes from './router'
+const router = new Router({
+  mode: 'history',
+  routes
+})
+// Vue.prototype.$S = S
+// 全局导航守卫
+// router.beforeEach((to, from, next) => {
+//   if (to.meta.requiresAuth) {
+//     if (S('token')) {
+//       next()
+//     } else {
+//       next({
+//         path: '/login',
+//         query: {
+//           redirect: to.fullPath
+//         }
+//       })
+//     }
+//   } else {
+//     next()
+//   }
+// })
 
 Vue.config.productionTip = false
-
-/* eslint-disable no-new */
 new Vue({
   el: '#app',
-  {{#router}}
   router,
-  {{/router}}
-  {{#if_eq build "runtime"}}
-  render: h => h(App)
-  {{/if_eq}}
-  {{#if_eq build "standalone"}}
-  components: { App },
+  store,
+  components: {
+    App
+  },
   template: '<App/>'
-  {{/if_eq}}
 })
